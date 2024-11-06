@@ -6,12 +6,12 @@ from tensorflow import keras
 import numpy as np
 
 
-model = keras.models.load_model("../nn.h5")
+model = keras.models.load_model("../nn.h5.keras")
 
 # load the image
 from PIL import Image
 import io
-with open('three.png', 'rb') as file:
+with open('eight.png', 'rb') as file:
     image_bytes = file.read()
     pillow_img = Image.open(io.BytesIO(image_bytes)).convert('L')
 

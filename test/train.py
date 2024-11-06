@@ -3,7 +3,6 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 from tensorflow import keras
 
-
 mnist = keras.datasets.mnist
 
 (x_train, y_train), (x_test, y_test) = mnist.load_data()
@@ -22,7 +21,7 @@ model = keras.models.Sequential([
 
 # loss and optimizer
 loss = keras.losses.SparseCategoricalCrossentropy(from_logits=True)
-optim = keras.optimizers.Adam(lr=0.001)
+optim = keras.optimizers.Adam(learning_rate=0.001)
 metrics = ["accuracy"]
 
 model.compile(loss=loss, optimizer=optim, metrics=metrics)
@@ -33,7 +32,7 @@ epochs = 5
 
 model.fit(x_train, y_train, batch_size=batch_size, epochs=epochs, shuffle=True, verbose=2)
 
-model.save("nn.h5")  # .h5 = HDF5
+model.save("nn.h5.keras")  # .h5 = HDF5
 
 # evaluate
 print("Evaluate both models:")
